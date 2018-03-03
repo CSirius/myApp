@@ -1,0 +1,60 @@
+<html>
+<head>
+</head>
+<body>
+<canvas id="myCanvas" width="1000" height="500" style="border:1px solid #d3d3d3;">
+</canvas>
+
+    <script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+
+ctx.font="12px Georgia";
+ctx.strokeText("绿直线",20,165);
+ctx.beginPath();//绘制绿直线
+ctx.moveTo(20,175);
+ctx.lineTo(500,175);
+ctx.strokeStyle="green";
+ctx.stroke();
+
+ctx.font="12px Arial";
+ctx.strokeText("蓝折线",20,190);
+ctx.beginPath();//绘制蓝折线
+ctx.moveTo(20,200);
+ctx.lineTo(20,300);
+ctx.lineTo(200,300);
+ctx.strokeStyle="blue";
+ctx.stroke();
+
+ctx.font="12px Georgia";
+ctx.strokeText("蓝色矩形",20,10);
+ctx.fillStyle="blue";//绘制蓝色矩形
+ctx.fillRect(20,20,170,100);
+
+ctx.font="12px Arial";
+ctx.strokeText("三次渐变矩形",200,10);
+var my_gradient=ctx.createLinearGradient(200,20,400,0);//绘制三次渐变矩形
+my_gradient.addColorStop(0,"black");
+my_gradient.addColorStop(0.5,"red");
+my_gradient.addColorStop(1,"white");
+ctx.fillStyle=my_gradient;
+ctx.fillRect(200,20,200,100);
+
+ctx.font="12px Georgia";
+ctx.strokeText("环变矩形",460,10);
+var grd=ctx.createRadialGradient(460,80,100,560,80,100);//绘制环变矩形
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+ctx.fillRect(410,20,200,100);
+
+ctx.font="12px Arial";
+ctx.strokeText("灰圆形",380,500,40);
+ctx.beginPath();//绘制灰圆形
+ctx.arc(400,500,50,0,2*Math.PI);
+ctx.strokeStyle="grey";
+ctx.stroke();
+    </script>
+   
+</body>
+</html>
