@@ -2,47 +2,42 @@
         <html>  
             <head>  
             </head>  
-                <body>
-                    <center>  
+                <body>     
+
                     <form action="/test.php" method="get">  
                             跳马  
-                            <br>
                             <br>
                             行数:<input type="number" name="row" id="row"  min="0" max="10" />  
                             列数:<input type="number" name="column" id="column"  min="0" max="10"/>  
                             <br>
-                            <br>
                             起点:  
-                            <br>
                             <br>  
                             起点横坐标:<input type="number" name="fromRow" id="fromRow"  min="0" max="10" />  
                             起点纵坐标:<input type="number" name="fromColumn" id="fromColumn"  min="0" max="10"/>  
-                            <br><br>  
+                            <br>  
                             <input type="submit" value="提交" onclick="main()"/>  
-                        </form> 
-                    </center>    
+                        </form>  
       
       
                     <script>  
                         var direction=8;    //跳跃方向  
                         var MAX_STEP=50;  //最大步数  
                         var num=0;  
-                        var path=new Array(MAX_STEP + 1);  //创建数组保存路径 
+                        var path=new Array(MAX_STEP + 1);   
       
                           
                         for(var i=0;i<(MAX_STEP+1);i++)
                         {  
                             path[i]=new Array(2);  
-                        }//创建二维数组  
-
-                        var dx=new Array( 0, 1, 2, 2, 1, -1, -2, -2, -1);//表示x方向  
-                        var dy=new Array( 0, 2, 1, -1,-2, 2, 1, -1, -2);//表示y方向  
+                        }//创建二维虚拟数组  
+                        var dx=new Array( 0, 1, 2, 2, 1, -1, -2, -2, -1);//表示方向  
+                        var dy=new Array( 0, 2, 1, -1, -2, 2, 1, -1, -2);//表示方向  
                          
                           
                         function Path(MAX_X, MAX_Y, step,xy)
                         {  
                             for (var i = 0; i < MAX_Y;i++)  
-                            for (var j = 0; j < MAX_X;j++)  
+                            for (var j = 0; j < MAX_X; j++)  
                                 xy[i][j] = 0;  
                             for (var i = 1; i < step; i++){  
                                 xy[path[i][1]][path[i][0]] = 1;  
@@ -79,34 +74,34 @@
                                 t2 = (y1 >= 0) && (y1 <= MAX_Y);//上下边界内  
                                 //边界  
                                  
-                                t3 = (x1 == path[0][0]);//判断是否走回  
+                                t3 = (x1 == path[0][0]);  
                                 t4 = (y1 == path[0][1]);  
       
                                 if (t1 && t2){//在棋盘内  
                                     //记录位置  
                                     if (!Judgment(x1, y1,xy)){//返回false表示没有重复，可以继续寻找路径  
-                                        
+                                        //continue;  
                                         path[step][0] = x1;  
-                                        path[step][1] = y1; 
-
+                                        path[step][1] = y1;  
+      
                                         
                                         if (t3 && t4){  
                                             num++;  
-                                            document.write("方案"+num+":");  //输出方案
+                                            document.write("方案"+num+":");  
       
                                             for (var i = 0; i <= step; i++){  
                                                 document.write( "("+path[i][0]+","+path[i][1]+")");  
                                                 if (i != step)  
                                                     document.write(" -> ");  
-                                            }                                     
+                                            }//for(i)                                      
                                             document.write("<br>");  
-                                        } 
+                                        }//if(t3456)  
                                         else{  
                                             Jump(MAX_X, MAX_Y,x1, y1, step + 1,xy);   
-                                        }
-                                    }
-                                }
-                            } 
+                                        }//else  
+                                    }//if (!Judgment(x1, y1))  
+                                }//if(t1 && t2)  
+                            }//for(k)  
                         }  
       
       
@@ -124,12 +119,12 @@
                             b=path[0][1]=document.getElementById("fromRow").value;  
                              
                               
-                            var xy=new Array(MAX_Y+1);  //创建二维数组，用于判断走过的节点
+                            var xy=new Array(MAX_Y+1);  
                             for(var i=0;i<MAX_Y+1;i++)
                             {  
                                 xy[i]=new Array(MAX_X+1);  
                             }  
-                            for(var i=0;i<MAX_Y+1;i++)//初始化数组
+                            for(var i=0;i<MAX_Y+1;i++)
                             {  
                                 for(var j=0;j<MAX_X+1;j++)
                                 {  
