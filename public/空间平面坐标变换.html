@@ -2,7 +2,7 @@
     <head>    
         <title>名称空间变换</title>    
     </head>    
-        <style type="text/css">    
+       <!--  <style type="text/css">    
             * {   
             padding:0; /*内框距 上右下左*/  
             margin:0; /*外...*/  
@@ -59,7 +59,7 @@
             margin-left:1px;   
             width:120px;   
             }   
-        </style>   
+        </style>    -->
   
         <body>  
             <center>    
@@ -99,7 +99,7 @@
                     tranx=a.slice(0);  
                     trany=b.slice(0);  
                     draw(number);    
-                    dracanvas(tranx,trany);//坐标系          
+     
                 } 
 
                 //左斜变换  
@@ -130,7 +130,7 @@
                     tran=numberleftoblique.slice(0);  
                       
                     draw(numberleftoblique);    
-                    dracanvas(xleftoblique,yleftoblique);//坐标系          
+        
                 }  
                 //耸肩变换  
                 function shrugged(){  
@@ -152,7 +152,7 @@
                     tran=numbershrugged.slice(0);  
                       
                     draw(numbershrugged);    
-                    dracanvas(tranx,tranx);//坐标系          
+    
                 }  
                 //放大  
                 function enlarge(){  
@@ -178,7 +178,7 @@
                     trany=ylarge.slice(0);  
                       
                     draw(numberlarge);  
-                    dracanvas(xlarge,ylarge);//坐标系  
+
                       
                 }   
 
@@ -205,7 +205,7 @@
                     trany=ytranslateright.slice(0);  
                       
                     draw(numbertranslateright);  
-                    dracanvas(xtranslateright,ytranslateright);//坐标系  
+
                 }  
         
                 //顺时针旋转  
@@ -236,7 +236,7 @@
                     tran=numberrotateshun.slice(0);  
                       
                     draw(numberrotateshun);   
-                    dracanvas(xrotateshun,yrotateshun);//坐标系  
+
                       
                 }  
                 
@@ -264,7 +264,7 @@
                     tran=numbersymmetryy.slice(0);  
                       
                     draw(numbersymmetryy);   
-                    dracanvas(xsymmetryy,ysymmetryy);//坐标系    
+ 
                 } 
                 
                 //主函数  
@@ -278,10 +278,9 @@
                               
                         number= digitalExtraction(str,number);//提取数字并存入数组  
                         tran=number.slice(0);  
-                        XY();  
   
                         draw(number);  
-                        dracanvas(a,b);//坐标系   
+ 
                       
                     }  
                 }  
@@ -353,15 +352,7 @@
                         }  
                     }  
                 }  
-                //XY轴坐标初始化  
-                function XY(){  
-                    for(var i=0;i<32;i++){  
-                        a[i]=30+i*10;  
-                        b[i]=30+i*10;  
-                    }  
-                    tranx=a.slice(0);  
-                    trany=b.slice(0);  
-                }  
+
           
                 //求解当前名字的几何中心 
                 function outsourcing(arr){  
