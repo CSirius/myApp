@@ -6,16 +6,24 @@
     <head>
         <title>Area</title>
         <meta charset="UTF-8">
-   
-            
-    
+        <style>
+                #header {
+                    background-color:black;
+                    color:white;
+                    text-align:center;
+                    padding:5px;
+                }
+            </style>
     <body>
           
                     
         <div >
-
-            <div >
-            <p>打开文件</p>
+<div id="header">
+        <h1>Area Calculation</h1>
+</div>
+<center>
+            <div>
+                    <p>打开文件</p>
             <input type="file" id="input"> 
             <br>
             <input type="button" value="绘制" onclick="JS()">
@@ -31,8 +39,8 @@
             <div style="width:35%;height:585px;float:left;"id="result1">
             </div> 
             <div style="width:35%;height:585px;float:left;" id="result2">
-            
         </div>
+    </center>
     
 <script type="text/javascript">
 function Point(x,y)
